@@ -1,0 +1,461 @@
+@prefix : <http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/> .
+@prefix bld: <http://bimerr.iot.linkeddata.es/def/building#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/> .
+
+<http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer> rdf:type owl:Ontology ;
+                                                                       owl:imports bld: ,
+                                                                                   <http://rdfs.org/sioc/ns#> ,
+                                                                                   <https://w3id.org/bot-0.3.2> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/backside
+:backside rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf bot:adjacentZone ;
+          rdf:type owl:IrreflexiveProperty ;
+          rdfs:domain :Lot ;
+          rdfs:range [ rdf:type owl:Class ;
+                       owl:unionOf ( :Lot
+                                     :Street
+                                   )
+                     ] .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/betweenStreet
+:betweenStreet rdf:type owl:ObjectProperty ;
+               rdfs:domain :Lot ;
+               rdfs:range :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/frontStreet
+:frontStreet rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf bot:adjacentZone ;
+             rdf:type owl:FunctionalProperty ,
+                      owl:IrreflexiveProperty ;
+             rdfs:domain :Lot ;
+             rdfs:range :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/hasService
+:hasService rdf:type owl:ObjectProperty ;
+            rdfs:domain bot:Zone ;
+            rdfs:range :Service .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/intersectsStreet
+:intersectsStreet rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf bot:intersectsZone ;
+                  owl:inverseOf :intersectsStreet ;
+                  rdf:type owl:SymmetricProperty ;
+                  rdfs:domain :Street ;
+                  rdfs:range :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/locatedOn
+:locatedOn rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           owl:inverseOf bot:hasBuilding .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/neighborInFloor
+:neighborInFloor rdf:type owl:ObjectProperty ,
+                          owl:SymmetricProperty ,
+                          owl:TransitiveProperty ;
+                 rdfs:domain bld:Apartment ;
+                 rdfs:range bld:Apartment .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/published_by
+:published_by rdf:type owl:ObjectProperty ;
+              owl:inverseOf :publisher_of ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :RealStatePublication ;
+              rdfs:range <http://xmlns.com/foaf/0.1/Agent> .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/publisher_of
+:publisher_of rdf:type owl:ObjectProperty ,
+                       owl:InverseFunctionalProperty ;
+              rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+              rdfs:range :RealStatePublication .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/availableForMortgageLoan
+:availableForMortgageLoan rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :RealStatePublication ;
+                          rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/coveredM2
+:coveredM2 rdf:type owl:DatatypeProperty ;
+           rdfs:domain bot:Zone ;
+           rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/currency
+:currency rdf:type owl:DatatypeProperty ;
+          rdfs:domain :RealStatePublication ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain :RealStatePublication ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/isRegular
+:isRegular rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Lot ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/latitude
+:latitude rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain bot:Zone ;
+          rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/longitude
+:longitude rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain bot:Zone ;
+           rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/m2
+:m2 rdf:type owl:DatatypeProperty ;
+    rdfs:domain bot:Zone ;
+    rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/m3
+:m3 rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Pool ;
+    rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/number
+:number rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Lot ;
+        rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/numberOfStorey
+:numberOfStorey rdf:type owl:DatatypeProperty ;
+                rdfs:domain bld:Building ;
+                rdfs:range xsd:positiveInteger .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/postalCode
+:postalCode rdf:type owl:DatatypeProperty ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :Lot
+                                        :Neighborhood
+                                      )
+                        ] ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/price
+:price rdf:type owl:DatatypeProperty ;
+       rdfs:domain :RealStatePublication ;
+       rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/publicationDate
+:publicationDate rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :RealStatePublication ;
+                 rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/storeyNumber
+:storeyNumber rdf:type owl:DatatypeProperty ;
+              rdfs:domain bld:Storey ;
+              rdfs:range xsd:int .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://bimerr.iot.linkeddata.es/def/building#Apartment
+bld:Apartment owl:disjointWith :Shed ,
+                               :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Attic
+:Attic rdf:type owl:Class ;
+       rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Balcony
+:Balcony rdf:type owl:Class ;
+         rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Basement
+:Basement rdf:type owl:Class ;
+          rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Bathroom
+:Bathroom rdf:type owl:Class ;
+          rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Bedroom
+:Bedroom rdf:type owl:Class ;
+         rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/House
+:House rdf:type owl:Class ;
+       rdfs:subClassOf bot:Building .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Kitchen
+:Kitchen rdf:type owl:Class ;
+         rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Laundryroom
+:Laundryroom rdf:type owl:Class ;
+             rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Livingroom
+:Livingroom rdf:type owl:Class ;
+            rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lot
+:Lot rdf:type owl:Class ;
+     rdfs:subClassOf bot:Site ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :betweenStreet ;
+                       owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                       owl:onClass :Street
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :isRegular ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:boolean
+                     ] .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Neighborhood
+:Neighborhood rdf:type owl:Class ;
+              rdfs:subClassOf bot:Zone .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Pool
+:Pool rdf:type owl:Class ;
+      rdfs:subClassOf bld:BuildingElement .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/RealStatePublication
+:RealStatePublication rdf:type owl:Class ;
+                      rdfs:subClassOf <http://rdfs.org/sioc/ns#Post> .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Rooftop
+:Rooftop rdf:type owl:Class ;
+         rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Service
+:Service rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Shed
+:Shed rdf:type owl:Class ;
+      rdfs:subClassOf bot:Zone ;
+      owl:disjointWith :Street ,
+                       bot:Building ,
+                       bot:Site ,
+                       bot:Space ,
+                       bot:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Stairs
+:Stairs rdf:type owl:Class ;
+        rdfs:subClassOf bld:BuildingElement .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Street
+:Street rdf:type owl:Class ;
+        rdfs:subClassOf bot:Zone ;
+        owl:disjointWith bot:Building ,
+                         bot:Site ,
+                         bot:Space ,
+                         bot:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Yard
+:Yard rdf:type owl:Class ;
+      rdfs:subClassOf bld:Space .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle1
+:Calle1 rdf:type owl:NamedIndividual ,
+                 :Street ;
+        :intersectsStreet :Calle2 ,
+                          :Calle4 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle2
+:Calle2 rdf:type owl:NamedIndividual ,
+                 :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle3
+:Calle3 rdf:type owl:NamedIndividual ,
+                 :Street ;
+        :intersectsStreet :Calle2 ,
+                          :Calle4 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle4
+:Calle4 rdf:type owl:NamedIndividual ,
+                 :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CalleA
+:CalleA rdf:type owl:NamedIndividual ,
+                 :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CasaL6
+:CasaL6 rdf:type owl:NamedIndividual ,
+                 :House ;
+        :locatedOn :Lote6 ;
+        bot:hasSpace :JardinCasaL6 ;
+        bot:hasStorey :Piso0CasaL6 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CocinaCasaL6
+:CocinaCasaL6 rdf:type owl:NamedIndividual ,
+                       :Kitchen .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1CasaL6
+:Habitacion1CasaL6 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion2CasaL6
+:Habitacion2CasaL6 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/JardinCasaL6
+:JardinCasaL6 rdf:type owl:NamedIndividual ,
+                       :Yard ;
+              bot:hasElement :PiletaCasaL6 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/LivingCasaL6
+:LivingCasaL6 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote1
+:Lote1 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote3 ;
+       :betweenStreet :Calle2 ,
+                      :Calle4 ;
+       :frontStreet :Calle1 ,
+                    :CalleA ;
+       bot:adjacentZone :Calle4 ,
+                        :Lote2 ;
+       bld:name "Lote 1" ;
+       :isRegular "true"^^xsd:boolean ;
+       :latitude "10.0"^^xsd:float ;
+       :longitude "10.0"^^xsd:float ;
+       :m2 "50.0"^^xsd:float ;
+       :number 1 ;
+       :postalCode 1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote2
+:Lote2 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote3 ,
+                 :Lote6 ;
+       :betweenStreet :Calle2 ,
+                      :Calle4 ;
+       :frontStreet :Calle1 ;
+       bot:adjacentZone :Calle2 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote3
+:Lote3 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote6 ;
+       :betweenStreet :Calle1 ,
+                      :Calle3 ;
+       :frontStreet :Calle4 ;
+       bot:adjacentZone :Lote4 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote4
+:Lote4 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote6 ;
+       :betweenStreet :Calle1 ,
+                      :Calle3 ;
+       :frontStreet :Calle4 ;
+       bot:adjacentZone :Lote5 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote5
+:Lote5 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote6 ;
+       :betweenStreet :Calle1 ,
+                      :Calle3 ;
+       :frontStreet :Calle4 ;
+       bot:adjacentZone :Calle3 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote6
+:Lote6 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote3 ,
+                 :Lote4 ,
+                 :Lote5 ;
+       :betweenStreet :Calle1 ,
+                      :Calle3 ;
+       :frontStreet :Calle2 ;
+       bot:adjacentZone :Calle3 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/PiletaCasaL6
+:PiletaCasaL6 rdf:type owl:NamedIndividual ,
+                       :Pool .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0CasaL6
+:Piso0CasaL6 rdf:type owl:NamedIndividual ,
+                      bld:Storey ;
+             bot:hasSpace :CocinaCasaL6 .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
