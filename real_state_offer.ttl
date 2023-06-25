@@ -44,6 +44,14 @@
              rdfs:range :Street .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/hasApartment
+:hasApartment rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf bld:hasApartment ,
+                                 bot:containsZone ;
+              rdfs:domain bld:Storey ;
+              rdfs:range bld:Apartment .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/hasService
 :hasService rdf:type owl:ObjectProperty ;
             rdfs:domain bot:Zone ;
@@ -59,10 +67,9 @@
                   rdfs:range :Street .
 
 
-###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/locatedOn
-:locatedOn rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf owl:topObjectProperty ;
-           owl:inverseOf bot:hasBuilding .
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/isContained
+:isContained rdf:type owl:ObjectProperty ;
+             owl:inverseOf bot:containsZone .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/neighborInFloor
@@ -223,6 +230,16 @@ bld:Apartment owl:disjointWith :Shed ,
          rdfs:subClassOf bld:Space .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Elevator
+:Elevator rdf:type owl:Class ;
+          rdfs:subClassOf bld:BuildingElement .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Garage
+:Garage rdf:type owl:Class ;
+        rdfs:subClassOf bld:Space .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/House
 :House rdf:type owl:Class ;
        rdfs:subClassOf bot:Building .
@@ -241,6 +258,11 @@ bld:Apartment owl:disjointWith :Shed ,
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Livingroom
 :Livingroom rdf:type owl:Class ;
             rdfs:subClassOf bld:Space .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lobby
+:Lobby rdf:type owl:Class ;
+       rdfs:subClassOf bld:Space .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lot
@@ -315,6 +337,16 @@ bld:Apartment owl:disjointWith :Shed ,
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Ascensor1EdificioL1
+:Ascensor1EdificioL1 rdf:type owl:NamedIndividual ,
+                              :Elevator .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Ascensor2EdificioL1
+:Ascensor2EdificioL1 rdf:type owl:NamedIndividual ,
+                              :Elevator .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Balcon1CasaL6
 :Balcon1CasaL6 rdf:type owl:NamedIndividual ,
                         :Balcony .
@@ -367,7 +399,6 @@ bld:Apartment owl:disjointWith :Shed ,
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CasaL6
 :CasaL6 rdf:type owl:NamedIndividual ,
                  :House ;
-        :locatedOn :Lote6 ;
         bot:hasSpace :JardinCasaL6 ;
         bot:hasStorey :Piso0CasaL6 ,
                       :Piso1CasaL6 .
@@ -378,9 +409,39 @@ bld:Apartment owl:disjointWith :Shed ,
                        :Kitchen .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento1P3EL1
+:Departamento1P3EL1 rdf:type owl:NamedIndividual ,
+                             bld:Apartment .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento2P3EL1
+:Departamento2P3EL1 rdf:type owl:NamedIndividual ,
+                             bld:Apartment .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/EdificioL1
+:EdificioL1 rdf:type owl:NamedIndividual ,
+                     bld:Building ;
+            bot:hasElement :Ascensor1EdificioL1 ,
+                           :Ascensor2EdificioL1 ;
+            bot:hasStorey :Piso-1EdificioL1 ,
+                          :Piso0EdificioL1 ,
+                          :Piso1EdificioL1 ,
+                          :Piso2EdificioL1 ,
+                          :Piso3EdificioL1 ,
+                          :Piso4EdificioL1 ,
+                          :Piso5EdificioL1 ,
+                          :Piso6EdificioL1 .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Escaleras1CasaL6
 :Escaleras1CasaL6 rdf:type owl:NamedIndividual ,
                            :Stairs .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/GarageEdificioL1
+:GarageEdificioL1 rdf:type owl:NamedIndividual ,
+                           :Garage .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1CasaL6
@@ -421,6 +482,11 @@ bld:Apartment owl:disjointWith :Shed ,
                        :Livingroom .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/LobbyEdificioL1
+:LobbyEdificioL1 rdf:type owl:NamedIndividual ,
+                          :Lobby .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote1
 :Lote1 rdf:type owl:NamedIndividual ,
                 :Lot ;
@@ -431,6 +497,7 @@ bld:Apartment owl:disjointWith :Shed ,
                     :CalleA ;
        bot:adjacentZone :Calle4 ,
                         :Lote2 ;
+       bot:hasBuilding :EdificioL1 ;
        bld:name "Lote 1" ;
        :isRegular "true"^^xsd:boolean ;
        :latitude "10.0"^^xsd:float ;
@@ -490,12 +557,19 @@ bld:Apartment owl:disjointWith :Shed ,
        :betweenStreet :Calle1 ,
                       :Calle3 ;
        :frontStreet :Calle2 ;
-       bot:adjacentZone :Calle3 .
+       bot:adjacentZone :Calle3 ;
+       bot:hasBuilding :CasaL6 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/PiletaCasaL6
 :PiletaCasaL6 rdf:type owl:NamedIndividual ,
                        :Pool .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso-1EdificioL1
+:Piso-1EdificioL1 rdf:type owl:NamedIndividual ,
+                           bld:Storey ;
+                  bot:hasSpace :GarageEdificioL1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0CasaL6
@@ -509,6 +583,12 @@ bld:Apartment owl:disjointWith :Shed ,
                           :LivingCasaL6 .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0EdificioL1
+:Piso0EdificioL1 rdf:type owl:NamedIndividual ,
+                          bld:Storey ;
+                 bot:hasSpace :LobbyEdificioL1 .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso1CasaL6
 :Piso1CasaL6 rdf:type owl:NamedIndividual ,
                       bld:Storey ;
@@ -516,6 +596,38 @@ bld:Apartment owl:disjointWith :Shed ,
                           :Habitacion3CasaL6 ,
                           :Habitacion4CasaL6 ,
                           :LavaderoCasaL6 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso1EdificioL1
+:Piso1EdificioL1 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso2EdificioL1
+:Piso2EdificioL1 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso3EdificioL1
+:Piso3EdificioL1 rdf:type owl:NamedIndividual ,
+                          bld:Storey ;
+                 :hasApartment :Departamento1P3EL1 ,
+                               :Departamento2P3EL1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso4EdificioL1
+:Piso4EdificioL1 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso5EdificioL1
+:Piso5EdificioL1 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso6EdificioL1
+:Piso6EdificioL1 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
