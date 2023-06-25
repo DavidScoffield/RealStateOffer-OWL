@@ -74,8 +74,7 @@
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/neighborInFloor
 :neighborInFloor rdf:type owl:ObjectProperty ,
-                          owl:SymmetricProperty ,
-                          owl:TransitiveProperty ;
+                          owl:SymmetricProperty ;
                  rdfs:domain bld:Apartment ;
                  rdfs:range bld:Apartment .
 
@@ -201,8 +200,7 @@
 #################################################################
 
 ###  http://bimerr.iot.linkeddata.es/def/building#Apartment
-bld:Apartment owl:disjointWith :Shed ,
-                               :Street .
+bld:Apartment owl:disjointWith :Street .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Attic
@@ -306,12 +304,7 @@ bld:Apartment owl:disjointWith :Shed ,
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Shed
 :Shed rdf:type owl:Class ;
-      rdfs:subClassOf bot:Zone ;
-      owl:disjointWith :Street ,
-                       bot:Building ,
-                       bot:Site ,
-                       bot:Space ,
-                       bot:Storey .
+      rdfs:subClassOf bot:Building .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Stairs
@@ -367,6 +360,16 @@ bld:Apartment owl:disjointWith :Shed ,
                       :Bathroom .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/BañoD1P3EL1
+:BañoD1P3EL1 rdf:type owl:NamedIndividual ,
+                      :Bathroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/BañoD2P3EL1
+:BañoD2P3EL1 rdf:type owl:NamedIndividual ,
+                      :Bathroom .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle1
 :Calle1 rdf:type owl:NamedIndividual ,
                  :Street ;
@@ -409,14 +412,32 @@ bld:Apartment owl:disjointWith :Shed ,
                        :Kitchen .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CocinaD1P3EL1
+:CocinaD1P3EL1 rdf:type owl:NamedIndividual ,
+                        :Kitchen .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CocinaD2P3EL1
+:CocinaD2P3EL1 rdf:type owl:NamedIndividual ,
+                        :Kitchen .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento1P3EL1
 :Departamento1P3EL1 rdf:type owl:NamedIndividual ,
-                             bld:Apartment .
+                             bld:Apartment ;
+                    :neighborInFloor :Departamento2P3EL1 ;
+                    bot:hasSpace :BañoD1P3EL1 ,
+                                 :CocinaD1P3EL1 ,
+                                 :Habitacion1D1P3EL1 ,
+                                 :Habitacion2D1P3EL1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento2P3EL1
 :Departamento2P3EL1 rdf:type owl:NamedIndividual ,
-                             bld:Apartment .
+                             bld:Apartment ;
+                    bot:hasSpace :BañoD2P3EL1 ,
+                                 :CocinaD2P3EL1 ,
+                                 :Habitacion1D2P3EL1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/EdificioL1
@@ -424,6 +445,7 @@ bld:Apartment owl:disjointWith :Shed ,
                      bld:Building ;
             bot:hasElement :Ascensor1EdificioL1 ,
                            :Ascensor2EdificioL1 ;
+            bot:hasSpace :CocinaD1P3EL1 ;
             bot:hasStorey :Piso-1EdificioL1 ,
                           :Piso0EdificioL1 ,
                           :Piso1EdificioL1 ,
@@ -449,9 +471,24 @@ bld:Apartment owl:disjointWith :Shed ,
                             :Bedroom .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1D1P3EL1
+:Habitacion1D1P3EL1 rdf:type owl:NamedIndividual ,
+                             :Bedroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1D2P3EL1
+:Habitacion1D2P3EL1 rdf:type owl:NamedIndividual ,
+                             :Bedroom .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion2CasaL6
 :Habitacion2CasaL6 rdf:type owl:NamedIndividual ,
                             :Bedroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion2D1P3EL1
+:Habitacion2D1P3EL1 rdf:type owl:NamedIndividual ,
+                             :Bedroom .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion3CasaL6
@@ -627,7 +664,13 @@ bld:Apartment owl:disjointWith :Shed ,
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso6EdificioL1
 :Piso6EdificioL1 rdf:type owl:NamedIndividual ,
-                          bld:Storey .
+                          bld:Storey ;
+                 bot:hasSpace :TerrazaEdificioL1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/TerrazaEdificioL1
+:TerrazaEdificioL1 rdf:type owl:NamedIndividual ,
+                            :Rooftop .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
