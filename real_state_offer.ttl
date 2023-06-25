@@ -58,6 +58,13 @@
             rdfs:range :Service .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/inNeighborhood
+:inNeighborhood rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :isContained ;
+                rdfs:domain bot:Zone ;
+                rdfs:range :Neighborhood .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/intersectsStreet
 :intersectsStreet rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf bot:intersectsZone ;
@@ -330,6 +337,11 @@ bld:Apartment owl:disjointWith :Street .
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Agua
+:Agua rdf:type owl:NamedIndividual ,
+               :Service .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Ascensor1EdificioL1
 :Ascensor1EdificioL1 rdf:type owl:NamedIndividual ,
                               :Elevator .
@@ -407,6 +419,11 @@ bld:Apartment owl:disjointWith :Street .
                       :Piso1CasaL6 .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Cloacas
+:Cloacas rdf:type owl:NamedIndividual ,
+                  :Service .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CocinaCasaL6
 :CocinaCasaL6 rdf:type owl:NamedIndividual ,
                        :Kitchen .
@@ -466,6 +483,11 @@ bld:Apartment owl:disjointWith :Street .
                            :Garage .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Gas
+:Gas rdf:type owl:NamedIndividual ,
+              :Service .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1CasaL6
 :Habitacion1CasaL6 rdf:type owl:NamedIndividual ,
                             :Bedroom .
@@ -509,6 +531,15 @@ bld:Apartment owl:disjointWith :Street .
               bot:hasElement :PiletaCasaL6 .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/LaPlata
+:LaPlata rdf:type owl:NamedIndividual ,
+                  :Neighborhood ;
+         :hasService :Agua ,
+                     :Cloacas ,
+                     :Gas ,
+                     :Luz .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/LavaderoCasaL6
 :LavaderoCasaL6 rdf:type owl:NamedIndividual ,
                          :Laundryroom .
@@ -532,6 +563,7 @@ bld:Apartment owl:disjointWith :Street .
                       :Calle4 ;
        :frontStreet :Calle1 ,
                     :CalleA ;
+       :inNeighborhood :LaPlata ;
        bot:adjacentZone :Calle4 ,
                         :Lote2 ;
        bot:hasBuilding :EdificioL1 ;
@@ -552,6 +584,7 @@ bld:Apartment owl:disjointWith :Street .
        :betweenStreet :Calle2 ,
                       :Calle4 ;
        :frontStreet :Calle1 ;
+       :inNeighborhood :LaPlata ;
        bot:adjacentZone :Calle2 .
 
 
@@ -562,6 +595,7 @@ bld:Apartment owl:disjointWith :Street .
        :betweenStreet :Calle1 ,
                       :Calle3 ;
        :frontStreet :Calle4 ;
+       :inNeighborhood :LaPlata ;
        bot:adjacentZone :Lote4 .
 
 
@@ -572,6 +606,7 @@ bld:Apartment owl:disjointWith :Street .
        :betweenStreet :Calle1 ,
                       :Calle3 ;
        :frontStreet :Calle4 ;
+       :inNeighborhood :LaPlata ;
        bot:adjacentZone :Lote5 .
 
 
@@ -582,6 +617,7 @@ bld:Apartment owl:disjointWith :Street .
        :betweenStreet :Calle1 ,
                       :Calle3 ;
        :frontStreet :Calle4 ;
+       :inNeighborhood :LaPlata ;
        bot:adjacentZone :Calle3 .
 
 
@@ -594,8 +630,14 @@ bld:Apartment owl:disjointWith :Street .
        :betweenStreet :Calle1 ,
                       :Calle3 ;
        :frontStreet :Calle2 ;
+       :inNeighborhood :LaPlata ;
        bot:adjacentZone :Calle3 ;
        bot:hasBuilding :CasaL6 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Luz
+:Luz rdf:type owl:NamedIndividual ,
+              :Service .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/PiletaCasaL6
