@@ -715,4 +715,354 @@ bld:Apartment owl:disjointWith :Street .
                             :Rooftop .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Ascensor1EdificioL11
+:Ascensor1EdificioL11 rdf:type owl:NamedIndividual ,
+                              :Elevator .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Ascensor2EdificioL11
+:Ascensor2EdificioL11 rdf:type owl:NamedIndividual ,
+                              :Elevator .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Balcon1CasaL16
+:Balcon1CasaL16 rdf:type owl:NamedIndividual ,
+                        :Balcony .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Balcon2CasaL16
+:Balcon2CasaL16 rdf:type owl:NamedIndividual ,
+                        :Balcony .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Baño1CasaL16
+:Baño1CasaL16 rdf:type owl:NamedIndividual ,
+                      :Bathroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Baño2CasaL16
+:Baño2CasaL16 rdf:type owl:NamedIndividual ,
+                      :Bathroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/BañoD1P3EL11
+:BañoD1P3EL11 rdf:type owl:NamedIndividual ,
+                      :Bathroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/BañoD2P3EL11
+:BañoD2P3EL11 rdf:type owl:NamedIndividual ,
+                      :Bathroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle11
+:Calle11 rdf:type owl:NamedIndividual ,
+                 :Street ;
+        :intersectsStreet :Calle12 ,
+                          :Calle14 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle12
+:Calle12 rdf:type owl:NamedIndividual ,
+                 :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle13
+:Calle13 rdf:type owl:NamedIndividual ,
+                 :Street ;
+        :intersectsStreet :Calle12 ,
+                          :Calle14 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle14
+:Calle14 rdf:type owl:NamedIndividual ,
+                 :Street .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CasaL16
+:CasaL16 rdf:type owl:NamedIndividual ,
+                 :House ;
+        bot:hasSpace :JardinCasaL16 ;
+        bot:hasStorey :Piso0CasaL16 ,
+                      :Piso1CasaL16 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CocinaCasaL16
+:CocinaCasaL16 rdf:type owl:NamedIndividual ,
+                       :Kitchen .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CocinaD1P3EL11
+:CocinaD1P3EL11 rdf:type owl:NamedIndividual ,
+                        :Kitchen .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CocinaD2P3EL11
+:CocinaD2P3EL11 rdf:type owl:NamedIndividual ,
+                        :Kitchen .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento1P3EL11
+:Departamento1P3EL11 rdf:type owl:NamedIndividual ,
+                             bld:Apartment ;
+                    :neighborInFloor :Departamento2P3EL11 ;
+                    bot:hasSpace :BañoD1P3EL11 ,
+                                 :CocinaD1P3EL11 ,
+                                 :Habitacion1D1P3EL11 ,
+                                 :Habitacion2D1P3EL11 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento2P3EL11
+:Departamento2P3EL11 rdf:type owl:NamedIndividual ,
+                             bld:Apartment ;
+                    bot:hasSpace :BañoD2P3EL11 ,
+                                 :CocinaD2P3EL11 ,
+                                 :Habitacion1D2P3EL11 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/EdificioL11
+:EdificioL11 rdf:type owl:NamedIndividual ,
+                     bld:Building ;
+            bot:hasElement :Ascensor1EdificioL11 ,
+                           :Ascensor2EdificioL11 ;
+            bot:hasSpace :CocinaD1P3EL11 ;
+            bot:hasStorey :Piso-1EdificioL11 ,
+                          :Piso0EdificioL11 ,
+                          :Piso1EdificioL11 ,
+                          :Piso2EdificioL11 ,
+                          :Piso3EdificioL11 ,
+                          :Piso4EdificioL11 ,
+                          :Piso5EdificioL11 ,
+                          :Piso6EdificioL11 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Escaleras1CasaL16
+:Escaleras1CasaL16 rdf:type owl:NamedIndividual ,
+                           :Stairs .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/GarageEdificioL11
+:GarageEdificioL11 rdf:type owl:NamedIndividual ,
+                           :Garage .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1CasaL16
+:Habitacion1CasaL16 rdf:type owl:NamedIndividual ,
+                            :Bedroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1D1P3EL11
+:Habitacion1D1P3EL11 rdf:type owl:NamedIndividual ,
+                             :Bedroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1D2P3EL11
+:Habitacion1D2P3EL11 rdf:type owl:NamedIndividual ,
+                             :Bedroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion2CasaL16
+:Habitacion2CasaL16 rdf:type owl:NamedIndividual ,
+                            :Bedroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion2D1P3EL11
+:Habitacion2D1P3EL11 rdf:type owl:NamedIndividual ,
+                             :Bedroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion3CasaL16
+:Habitacion3CasaL16 rdf:type owl:NamedIndividual ,
+                            :Bedroom ;
+                   bot:hasElement :Balcon1CasaL16 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion4CasaL16
+:Habitacion4CasaL16 rdf:type owl:NamedIndividual ,
+                            :Bedroom ;
+                   bot:hasElement :Balcon2CasaL16 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/JardinCasaL16
+:JardinCasaL16 rdf:type owl:NamedIndividual ,
+                       :Yard ;
+              bot:hasElement :PiletaCasaL16 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Berazategui
+:Berazategui rdf:type owl:NamedIndividual ,
+                  :Neighborhood ;
+         :hasService :Agua ,
+                     :Luz .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/LavaderoCasaL16
+:LavaderoCasaL16 rdf:type owl:NamedIndividual ,
+                         :Laundryroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/LivingCasaL16
+:LivingCasaL16 rdf:type owl:NamedIndividual ,
+                       :Livingroom .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/LobbyEdificioL11
+:LobbyEdificioL11 rdf:type owl:NamedIndividual ,
+                          :Lobby .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote11
+:Lote11 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote13 ;
+       :betweenStreet :Calle12 ,
+                      :Calle14 ;
+       :frontStreet :Calle11;
+       :inNeighborhood :Berazategui ;
+       bot:adjacentZone :Calle14 ,
+                        :Lote12 ;
+       bot:hasBuilding :EdificioL11 ;
+       bld:name "Lote 1" ;
+       :isRegular "true"^^xsd:boolean ;
+       :latitude "10.0"^^xsd:float ;
+       :longitude "10.0"^^xsd:float ;
+       :m2 "50.0"^^xsd:float ;
+       :number 1 ;
+       :postalCode 1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote12
+:Lote12 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote13 ,
+                 :Lote16 ;
+       :betweenStreet :Calle12 ,
+                      :Calle14 ;
+       :frontStreet :Calle11 ;
+       :inNeighborhood :Berazategui ;
+       bot:adjacentZone :Calle12 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote13
+:Lote13 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote16 ;
+       :betweenStreet :Calle11 ,
+                      :Calle13 ;
+       :frontStreet :Calle14 ;
+       :inNeighborhood :Berazategui ;
+       bot:adjacentZone :Lote14 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote14
+:Lote14 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote16 ;
+       :betweenStreet :Calle11 ,
+                      :Calle13 ;
+       :frontStreet :Calle14 ;
+       :inNeighborhood :Berazategui ;
+       bot:adjacentZone :Lote15 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote15
+:Lote15 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote16 ;
+       :betweenStreet :Calle11 ,
+                      :Calle13 ;
+       :frontStreet :Calle14 ;
+       :inNeighborhood :Berazategui ;
+       bot:adjacentZone :Calle13 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote16
+:Lote16 rdf:type owl:NamedIndividual ,
+                :Lot ;
+       :backside :Lote13 ,
+                 :Lote14 ,
+                 :Lote15 ;
+       :betweenStreet :Calle11 ,
+                      :Calle13 ;
+       :frontStreet :Calle12 ;
+       :inNeighborhood :Berazategui ;
+       bot:adjacentZone :Calle13 ;
+       bot:hasBuilding :CasaL16 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/PiletaCasaL16
+:PiletaCasaL16 rdf:type owl:NamedIndividual ,
+                       :Pool .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso-1EdificioL11
+:Piso-1EdificioL11 rdf:type owl:NamedIndividual ,
+                           bld:Storey ;
+                  bot:hasSpace :GarageEdificioL11 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0CasaL16
+:Piso0CasaL16 rdf:type owl:NamedIndividual ,
+                      bld:Storey ;
+             bot:hasElement :Escaleras1CasaL16 ;
+             bot:hasSpace :Baño1CasaL16 ,
+                          :CocinaCasaL16 ,
+                          :Habitacion1CasaL16 ,
+                          :Habitacion2CasaL16 ,
+                          :LivingCasaL16 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0EdificioL11
+:Piso0EdificioL11 rdf:type owl:NamedIndividual ,
+                          bld:Storey ;
+                 bot:hasSpace :LobbyEdificioL11 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso1CasaL16
+:Piso1CasaL16 rdf:type owl:NamedIndividual ,
+                      bld:Storey ;
+             bot:hasSpace :Baño2CasaL16 ,
+                          :Habitacion3CasaL16 ,
+                          :Habitacion4CasaL16 ,
+                          :LavaderoCasaL16 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso1EdificioL11
+:Piso1EdificioL11 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso2EdificioL11
+:Piso2EdificioL11 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso3EdificioL11
+:Piso3EdificioL11 rdf:type owl:NamedIndividual ,
+                          bld:Storey ;
+                 :hasApartment :Departamento1P3EL11 ,
+                               :Departamento2P3EL11 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso4EdificioL11
+:Piso4EdificioL11 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso5EdificioL11
+:Piso5EdificioL11 rdf:type owl:NamedIndividual ,
+                          bld:Storey .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso6EdificioL11
+:Piso6EdificioL11 rdf:type owl:NamedIndividual ,
+                          bld:Storey ;
+                 bot:hasSpace :TerrazaEdificioL11 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/TerrazaEdificioL11
+:TerrazaEdificioL11 rdf:type owl:NamedIndividual ,
+                            :Rooftop .
+
+
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
