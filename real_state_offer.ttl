@@ -960,7 +960,6 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
        bot:adjacentZone :Calle4 ,
                         :Lote2 ;
        bot:hasBuilding :EdificioL1 ;
-       bld:name "Lote 1" ;
        :isRegular "true"^^xsd:boolean ;
        :latitude "10.0"^^xsd:float ;
        :longitude "10.0"^^xsd:float ;
@@ -980,7 +979,6 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
         bot:adjacentZone :Calle14 ,
                          :Lote12 ;
         bot:hasBuilding :EdificioL11 ;
-        bld:name "Lote 11" ;
         :isRegular "true"^^xsd:boolean ;
         :latitude "110.0"^^xsd:float ;
         :longitude "110.0"^^xsd:float ;
@@ -1004,6 +1002,7 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
         :latitude "120.0"^^xsd:float ;
         :longitude "120.0"^^xsd:float ;
         :m2 "300.0"^^xsd:float ;
+        :number 12 ;
         rdfs:label "Lote 12" .
 
 
@@ -1016,7 +1015,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                        :Calle13 ;
         :frontStreet :Calle14 ;
         :inNeighborhood :Berazategui ;
-        bot:adjacentZone :Lote14 .
+        bot:adjacentZone :Lote14 ;
+        :isRegular "false"^^xsd:boolean ;
+        :latitude "130.0"^^xsd:float ;
+        :longitude "130.0"^^xsd:float ;
+        :m2 "200.0"^^xsd:float ;
+        :number 13 ;
+        rdfs:label "Lote 13" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote14
@@ -1028,7 +1033,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                        :Calle13 ;
         :frontStreet :Calle14 ;
         :inNeighborhood :Berazategui ;
-        bot:adjacentZone :Lote15 .
+        bot:adjacentZone :Lote15 ;
+        :isRegular "false"^^xsd:boolean ;
+        :latitude "140.0"^^xsd:float ;
+        :longitude "140.0"^^xsd:float ;
+        :m2 "300.0"^^xsd:float ;
+        :number 14 ;
+        rdfs:label "Lote 14" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote15
@@ -1040,7 +1051,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                        :Calle13 ;
         :frontStreet :Calle14 ;
         :inNeighborhood :Berazategui ;
-        bot:adjacentZone :Calle13 .
+        bot:adjacentZone :Calle13 ;
+        :isRegular "true"^^xsd:boolean ;
+        :latitude "150.0"^^xsd:float ;
+        :longitude "150.0"^^xsd:float ;
+        :m2 "276.0"^^xsd:float ;
+        :number 15 ;
+        rdfs:label "Lote 15" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote16
@@ -1054,7 +1071,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
         :frontStreet :Calle12 ;
         :inNeighborhood :Berazategui ;
         bot:adjacentZone :Calle13 ;
-        bot:hasBuilding :CasaL16 .
+        bot:hasBuilding :CasaL16 ;
+        :isRegular "true"^^xsd:boolean ;
+        :latitude "160.0"^^xsd:float ;
+        :longitude "160.0"^^xsd:float ;
+        :m2 "400.0"^^xsd:float ;
+        :number 16 ;
+        rdfs:label "Lote 16" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote2
@@ -1067,7 +1090,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                       :Calle4 ;
        :frontStreet :Calle1 ;
        :inNeighborhood :LaPlata ;
-       bot:adjacentZone :Calle2 .
+       bot:adjacentZone :Calle2 ;
+       :isRegular "false"^^xsd:boolean ;
+       :latitude "20.0"^^xsd:float ;
+       :longitude "20.0"^^xsd:float ;
+       :m2 "247.0"^^xsd:float ;
+       :number 2 ;
+       rdfs:label "Lote 2" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote3
@@ -1079,7 +1108,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                       :Calle3 ;
        :frontStreet :Calle4 ;
        :inNeighborhood :LaPlata ;
-       bot:adjacentZone :Lote4 .
+       bot:adjacentZone :Lote4 ;
+       :isRegular "true"^^xsd:boolean ;
+       :latitude "30.0"^^xsd:float ;
+       :longitude "30.0"^^xsd:float ;
+       :m2 "200.0"^^xsd:float ;
+       :number 3 ;
+       rdfs:label "Lote 3" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote4
@@ -1091,7 +1126,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
        :frontStreet :Calle4 ;
        :inNeighborhood :LaPlata ;
        bot:adjacentZone :Lote5 ;
-       bot:hasBuilding :GalponL4 .
+       bot:hasBuilding :GalponL4 ;
+       :isRegular "false"^^xsd:boolean ;
+       :latitude "40.0"^^xsd:float ;
+       :longitude "40.0"^^xsd:float ;
+       :m2 "200.0"^^xsd:float ;
+       :number 4 ;
+       rdfs:label "Lote 4" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote5
@@ -1103,7 +1144,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                       :Calle3 ;
        :frontStreet :Calle4 ;
        :inNeighborhood :LaPlata ;
-       bot:adjacentZone :Calle3 .
+       bot:adjacentZone :Calle3 ;
+       :isRegular "false"^^xsd:boolean ;
+       :latitude "50.0"^^xsd:float ;
+       :longitude "50.0"^^xsd:float ;
+       :m2 "345.0"^^xsd:float ;
+       :number 5 ;
+       rdfs:label "Lote 5" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Lote6
@@ -1117,7 +1164,13 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
        :frontStreet :Calle2 ;
        :inNeighborhood :LaPlata ;
        bot:adjacentZone :Calle3 ;
-       bot:hasBuilding :CasaL6 .
+       bot:hasBuilding :CasaL6 ;
+       :isRegular "true"^^xsd:boolean ;
+       :latitude "60.0"^^xsd:float ;
+       :longitude "60.0"^^xsd:float ;
+       :m2 "300.0"^^xsd:float ;
+       :number 6 ;
+       rdfs:label "Lote 6" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Luz
