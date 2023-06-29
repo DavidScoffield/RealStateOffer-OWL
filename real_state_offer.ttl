@@ -6,7 +6,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/> .
+@base <http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer> .
 
 <http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer> rdf:type owl:Ontology ;
                                                                        owl:imports bld: ,
@@ -111,6 +111,8 @@
               rdfs:range :RealEstatePublication .
 
 
+###  https://w3id.org/bot#containsZone
+
 #################################################################
 #    Data properties
 #################################################################
@@ -131,12 +133,6 @@
 :currency rdf:type owl:DatatypeProperty ;
           rdfs:domain :RealEstatePublication ;
           rdfs:range xsd:string .
-
-
-###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/description
-:description rdf:type owl:DatatypeProperty ;
-             rdfs:domain :RealEstatePublication ;
-             rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/isRegular
@@ -255,6 +251,18 @@ bld:Apartment owl:disjointWith :Street .
           rdfs:subClassOf bld:BuildingElement .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/EmptyLot
+:EmptyLot rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :Lot
+                                                     [ rdf:type owl:Class ;
+                                                       owl:complementOf :OccupiedLot
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
+          rdfs:subClassOf :Lot .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Garage
 :Garage rdf:type owl:Class ;
         rdfs:subClassOf bld:Space .
@@ -305,6 +313,19 @@ bld:Apartment owl:disjointWith :Street .
               rdfs:subClassOf bot:Zone .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/OccupiedLot
+:OccupiedLot rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Lot
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty bot:hasBuilding ;
+                                                          owl:someValuesFrom bot:Building
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :Lot .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Pool
 :Pool rdf:type owl:Class ;
       rdfs:subClassOf bld:BuildingElement .
@@ -353,13 +374,22 @@ bld:Apartment owl:disjointWith :Street .
       rdfs:subClassOf bld:Space .
 
 
+###  https://w3id.org/bot#Building
+
+###  https://w3id.org/bot#Site
+
+###  https://w3id.org/bot#Space
+
+###  https://w3id.org/bot#Storey
+
 #################################################################
 #    Individuals
 #################################################################
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Agua
 :Agua rdf:type owl:NamedIndividual ,
-               :Service .
+               :Service ;
+      rdfs:label "Agua"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Ascensor1EdificioL1
@@ -495,26 +525,31 @@ bld:Apartment owl:disjointWith :Street .
 :Berazategui rdf:type owl:NamedIndividual ,
                       :Neighborhood ;
              :hasService :Agua ,
-                         :Luz .
+                         :Luz ;
+             :postalCode 1880 ;
+             rdfs:label "Berazategui"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle1
 :Calle1 rdf:type owl:NamedIndividual ,
                  :Street ;
         :intersectsStreet :Calle2 ,
-                          :Calle4 .
+                          :Calle4 ;
+        rdfs:label "Calle 1"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle11
 :Calle11 rdf:type owl:NamedIndividual ,
                   :Street ;
          :intersectsStreet :Calle12 ,
-                           :Calle14 .
+                           :Calle14 ;
+         rdfs:label "Calle 11"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle12
 :Calle12 rdf:type owl:NamedIndividual ,
-                  :Street .
+                  :Street ;
+         rdfs:label "Calle 12"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Calle13
@@ -569,7 +604,8 @@ bld:Apartment owl:disjointWith :Street .
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Cloacas
 :Cloacas rdf:type owl:NamedIndividual ,
-                  :Service .
+                  :Service ;
+         rdfs:label "Cloacas"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/CocinaCasaL16
@@ -697,7 +733,8 @@ bld:Apartment owl:disjointWith :Street .
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Gas
 :Gas rdf:type owl:NamedIndividual ,
-              :Service .
+              :Service ;
+     rdfs:label "Gas"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion1CasaL16
@@ -802,7 +839,9 @@ bld:Apartment owl:disjointWith :Street .
          :hasService :Agua ,
                      :Cloacas ,
                      :Gas ,
-                     :Luz .
+                     :Luz ;
+         :postalCode 1900 ;
+         rdfs:label "La Plata"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/LavaderoCasaL16
@@ -996,7 +1035,8 @@ bld:Apartment owl:disjointWith :Street .
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Luz
 :Luz rdf:type owl:NamedIndividual ,
-              :Service .
+              :Service ;
+     rdfs:label "Luz"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/MartinSouto
@@ -1006,12 +1046,14 @@ bld:Apartment owl:disjointWith :Street .
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/PiletaCasaL16
 :PiletaCasaL16 rdf:type owl:NamedIndividual ,
-                        :Pool .
+                        :Pool ;
+               :m3 "70.0"^^xsd:float .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/PiletaCasaL6
 :PiletaCasaL6 rdf:type owl:NamedIndividual ,
-                       :Pool .
+                       :Pool ;
+              :m3 "65.1"^^xsd:float .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso-1EdificioL1
@@ -1154,4 +1196,4 @@ bld:Apartment owl:disjointWith :Street .
                              :Rooftop .
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
