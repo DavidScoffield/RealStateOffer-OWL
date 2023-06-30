@@ -179,11 +179,7 @@
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/postalCode
 :postalCode rdf:type owl:DatatypeProperty ;
-            rdfs:domain [ rdf:type owl:Class ;
-                          owl:unionOf ( :Lot
-                                        :Neighborhood
-                                      )
-                        ] ;
+            rdfs:domain :Neighborhood ;
             rdfs:range xsd:integer .
 
 
@@ -208,8 +204,8 @@
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/storeyNumber
 :storeyNumber rdf:type owl:DatatypeProperty ;
-              rdfs:domain bld:Storey ;
-              rdfs:range xsd:int .
+              rdfs:domain bot:Storey ;
+              rdfs:range xsd:integer .
 
 
 #################################################################
@@ -374,6 +370,16 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                        rdfs:subClassOf <http://rdfs.org/sioc/ns#Post> .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/RealEstatePublicationLoan
+:RealEstatePublicationLoan rdf:type owl:Class ;
+                           rdfs:subClassOf :RealEstatePublication .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/RealEstatePublicationSell
+:RealEstatePublicationSell rdf:type owl:Class ;
+                           rdfs:subClassOf :RealEstatePublication .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Rooftop
 :Rooftop rdf:type owl:Class ;
          rdfs:subClassOf bld:Space .
@@ -444,51 +450,84 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoDSD1P3EL1
 :AvisoDSD1P3EL1 rdf:type owl:NamedIndividual ,
-                         :RealEstatePublication ;
+                         :RealEstatePublicationLoan ;
                 :aboutBuilding :Departamento1P3EL1 ;
-                :published_by :DavidScoffield .
+                :published_by :DavidScoffield ;
+                :currency "dolares" ;
+                :price "1000.0"^^xsd:float ;
+                :publicationDate "2023-10-02T12:00:00"^^xsd:dateTime ;
+                :sellerAcceptsMortgageLoan "true"^^xsd:boolean ;
+                rdfs:label "David Scoffield alquila su depto" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm1CL6
 :AvisoInm1CL6 rdf:type owl:NamedIndividual ,
-                       :RealEstatePublication ;
+                       :RealEstatePublicationSell ;
               :aboutBuilding :CasaL6 ;
-              :published_by :Inmobiliaria1 .
+              :published_by :Inmobiliaria1 ;
+              :currency "dolares" ;
+              :price "200000.0"^^xsd:float ;
+              :publicationDate "2023-05-12T12:00:00"^^xsd:dateTime ;
+              :sellerAcceptsMortgageLoan "false"^^xsd:boolean ;
+              rdfs:label "Ciarlantini Inmobiliaria vende casa en La Plata" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm1D2P3EL1
 :AvisoInm1D2P3EL1 rdf:type owl:NamedIndividual ,
-                           :RealEstatePublication ;
+                           :RealEstatePublicationLoan ;
                   :aboutBuilding :Departamento2P3EL1 ;
-                  :published_by :Inmobiliaria1 .
+                  :published_by :Inmobiliaria1 ;
+                  :currency "dolares" ;
+                  :price "1500.0"^^xsd:float ;
+                  :publicationDate "2023-06-29T12:00:00"^^xsd:dateTime ;
+                  rdfs:label "Ciarlantini Inmobiliaria alquila departamento en La Plata" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm2CL6
 :AvisoInm2CL6 rdf:type owl:NamedIndividual ,
-                       :RealEstatePublication ;
+                       :RealEstatePublicationSell ;
               :aboutBuilding :CasaL6 ;
-              :published_by :Inmobiliaria2 .
+              :published_by :Inmobiliaria2 ;
+              :currency "dolares" ;
+              :price "150000.0"^^xsd:float ;
+              :publicationDate "2023-04-30T12:00:00"^^xsd:dateTime ;
+              :sellerAcceptsMortgageLoan "true"^^xsd:boolean ;
+              rdfs:comment "Suppes inmobiliaria vende casa en La Plataà" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm2D1P3EL11
 :AvisoInm2D1P3EL11 rdf:type owl:NamedIndividual ,
-                            :RealEstatePublication ;
+                            :RealEstatePublicationSell ;
                    :aboutBuilding :Departamento1P3EL11 ;
-                   :published_by :Inmobiliaria2 .
+                   :published_by :Inmobiliaria2 ;
+                   :currency "dolares" ;
+                   :price "90000.0"^^xsd:float ;
+                   :publicationDate "2023-01-01T12:00:00"^^xsd:dateTime ;
+                   :sellerAcceptsMortgageLoan "true"^^xsd:boolean ;
+                   rdfs:label "Suppes inmobiliaria vende departamento en Berazategui" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm2D2P3EL11
 :AvisoInm2D2P3EL11 rdf:type owl:NamedIndividual ,
-                            :RealEstatePublication ;
+                            :RealEstatePublicationLoan ;
                    :aboutBuilding :Departamento2P3EL11 ;
-                   :published_by :Inmobiliaria2 .
+                   :published_by :Inmobiliaria2 ;
+                   :currency "dolares" ;
+                   :price "500.0"^^xsd:float ;
+                   :publicationDate "2023-02-02T12:00:00"^^xsd:dateTime ;
+                   rdfs:label "Suppes Inmobiliaria alquila departamento en Berazategui" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoMSCL16
 :AvisoMSCL16 rdf:type owl:NamedIndividual ,
-                      :RealEstatePublication ;
+                      :RealEstatePublicationSell ;
              :aboutBuilding :CasaL16 ;
-             :published_by :MartinSouto .
+             :published_by :MartinSouto ;
+             :currency "dolares" ;
+             :price "200000.0"^^xsd:float ;
+             :publicationDate "2023-04-09T12:00:00"^^xsd:dateTime ;
+             :sellerAcceptsMortgageLoan "true"^^xsd:boolean ;
+             rdfs:label "Martin Souto vende casa en Berazategui" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Balcon1CasaL16
@@ -686,7 +725,8 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/DavidScoffield
 :DavidScoffield rdf:type owl:NamedIndividual ,
-                         :DirectOwner .
+                         :DirectOwner ;
+                rdfs:label "David Scoffield" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento1P3EL1
@@ -754,7 +794,10 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                           :Piso3EdificioL1 ,
                           :Piso4EdificioL1 ,
                           :Piso5EdificioL1 ,
-                          :Piso6EdificioL1 .
+                          :Piso6EdificioL1 ;
+            :coveredM2 "700.0"^^xsd:float ;
+            :m2 "770.0"^^xsd:float ;
+            :numberOfStoreys "7"^^xsd:positiveInteger .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/EdificioL11
@@ -770,7 +813,10 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                            :Piso3EdificioL11 ,
                            :Piso4EdificioL11 ,
                            :Piso5EdificioL11 ,
-                           :Piso6EdificioL11 .
+                           :Piso6EdificioL11 ;
+             :coveredM2 "700.0"^^xsd:float ;
+             :m2 "770.0"^^xsd:float ;
+             :numberOfStoreys "7"^^xsd:positiveInteger .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Escaleras1CasaL16
@@ -787,7 +833,11 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 :GalponL4 rdf:type owl:NamedIndividual ,
                    :Shed ;
           bot:hasSpace :JardinGalponL4 ;
-          bot:hasStorey :Piso0GalponL4 .
+          bot:hasStorey :Piso0GalponL4 ;
+          :availableForMortgageLoan "false"^^xsd:boolean ;
+          :coveredM2 "200.0"^^xsd:float ;
+          :m2 "200.0"^^xsd:float ;
+          :numberOfStoreys "1"^^xsd:positiveInteger .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/GarageEdificioL1
@@ -882,12 +932,14 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Inmobiliaria1
 :Inmobiliaria1 rdf:type owl:NamedIndividual ,
-                        :RealEstate .
+                        :RealEstate ;
+               rdfs:label "Ciarlantini Inmobiliaria" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Inmobiliaria2
 :Inmobiliaria2 rdf:type owl:NamedIndividual ,
-                        :RealEstate .
+                        :RealEstate ;
+               rdfs:label "Suppes Inmobiliaria" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/JardinCasaL16
@@ -1181,7 +1233,8 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/MartinSouto
 :MartinSouto rdf:type owl:NamedIndividual ,
-                      :DirectOwner .
+                      :DirectOwner ;
+             rdfs:label "Martin Souto" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/PiletaCasaL16
@@ -1199,13 +1252,15 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso-1EdificioL1
 :Piso-1EdificioL1 rdf:type owl:NamedIndividual ,
                            bld:Storey ;
-                  bot:hasSpace :GarageEdificioL1 .
+                  bot:hasSpace :GarageEdificioL1 ;
+                  :storeyNumber -1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso-1EdificioL11
 :Piso-1EdificioL11 rdf:type owl:NamedIndividual ,
                             bld:Storey ;
-                   bot:hasSpace :GarageEdificioL11 .
+                   bot:hasSpace :GarageEdificioL11 ;
+                   :storeyNumber -1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0CasaL16
@@ -1216,7 +1271,8 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                            :CocinaCasaL16 ,
                            :Habitacion1CasaL16 ,
                            :Habitacion2CasaL16 ,
-                           :LivingCasaL16 .
+                           :LivingCasaL16 ;
+              :storeyNumber 0 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0CasaL6
@@ -1227,25 +1283,29 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                           :CocinaCasaL6 ,
                           :Habitacion1CasaL6 ,
                           :Habitacion2CasaL6 ,
-                          :LivingCasaL6 .
+                          :LivingCasaL6 ;
+             :storeyNumber 0 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0EdificioL1
 :Piso0EdificioL1 rdf:type owl:NamedIndividual ,
                           bld:Storey ;
-                 bot:hasSpace :LobbyEdificioL1 .
+                 bot:hasSpace :LobbyEdificioL1 ;
+                 :storeyNumber 0 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0EdificioL11
 :Piso0EdificioL11 rdf:type owl:NamedIndividual ,
                            bld:Storey ;
-                  bot:hasSpace :LobbyEdificioL11 .
+                  bot:hasSpace :LobbyEdificioL11 ;
+                  :storeyNumber 0 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso0GalponL4
 :Piso0GalponL4 rdf:type owl:NamedIndividual ,
                         bot:Storey ;
-               bot:hasSpace :WorkspaceP0GL4 .
+               bot:hasSpace :WorkspaceP0GL4 ;
+               :storeyNumber 0 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso1CasaL16
@@ -1254,7 +1314,8 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
               bot:hasSpace :Baño2CasaL16 ,
                            :Habitacion3CasaL16 ,
                            :Habitacion4CasaL16 ,
-                           :LavaderoCasaL16 .
+                           :LavaderoCasaL16 ;
+              :storeyNumber 1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso1CasaL6
@@ -1263,73 +1324,86 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
              bot:hasSpace :Baño2CasaL6 ,
                           :Habitacion3CasaL6 ,
                           :Habitacion4CasaL6 ,
-                          :LavaderoCasaL6 .
+                          :LavaderoCasaL6 ;
+             :storeyNumber 1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso1EdificioL1
 :Piso1EdificioL1 rdf:type owl:NamedIndividual ,
-                          bld:Storey .
+                          bld:Storey ;
+                 :storeyNumber 1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso1EdificioL11
 :Piso1EdificioL11 rdf:type owl:NamedIndividual ,
-                           bld:Storey .
+                           bld:Storey ;
+                  :storeyNumber 1 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso2EdificioL1
 :Piso2EdificioL1 rdf:type owl:NamedIndividual ,
-                          bld:Storey .
+                          bld:Storey ;
+                 :storeyNumber 2 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso2EdificioL11
 :Piso2EdificioL11 rdf:type owl:NamedIndividual ,
-                           bld:Storey .
+                           bld:Storey ;
+                  :storeyNumber 2 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso3EdificioL1
 :Piso3EdificioL1 rdf:type owl:NamedIndividual ,
                           bld:Storey ;
                  :hasApartment :Departamento1P3EL1 ,
-                               :Departamento2P3EL1 .
+                               :Departamento2P3EL1 ;
+                 :storeyNumber 3 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso3EdificioL11
 :Piso3EdificioL11 rdf:type owl:NamedIndividual ,
                            bld:Storey ;
                   :hasApartment :Departamento1P3EL11 ,
-                                :Departamento2P3EL11 .
+                                :Departamento2P3EL11 ;
+                  :storeyNumber 3 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso4EdificioL1
 :Piso4EdificioL1 rdf:type owl:NamedIndividual ,
-                          bld:Storey .
+                          bld:Storey ;
+                 :storeyNumber 4 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso4EdificioL11
 :Piso4EdificioL11 rdf:type owl:NamedIndividual ,
-                           bld:Storey .
+                           bld:Storey ;
+                  :storeyNumber 4 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso5EdificioL1
 :Piso5EdificioL1 rdf:type owl:NamedIndividual ,
-                          bld:Storey .
+                          bld:Storey ;
+                 :storeyNumber 5 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso5EdificioL11
 :Piso5EdificioL11 rdf:type owl:NamedIndividual ,
-                           bld:Storey .
+                           bld:Storey ;
+                  :storeyNumber 5 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso6EdificioL1
 :Piso6EdificioL1 rdf:type owl:NamedIndividual ,
                           bld:Storey ;
-                 bot:hasSpace :TerrazaEdificioL1 .
+                 bot:hasSpace :TerrazaEdificioL1 ;
+                 :storeyNumber 6 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Piso6EdificioL11
 :Piso6EdificioL11 rdf:type owl:NamedIndividual ,
                            bld:Storey ;
-                  bot:hasSpace :TerrazaEdificioL11 .
+                  bot:hasSpace :TerrazaEdificioL11 ;
+                  :storeyNumber 6 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/TerrazaEdificioL1
