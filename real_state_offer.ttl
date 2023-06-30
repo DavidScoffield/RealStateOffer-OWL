@@ -6,7 +6,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/> .
+@base <http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer> .
 
 <http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer> rdf:type owl:Ontology ;
                                                                        owl:imports bld: ,
@@ -91,7 +91,8 @@
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/neighborInFloor
 :neighborInFloor rdf:type owl:ObjectProperty ,
-                          owl:SymmetricProperty ;
+                          owl:SymmetricProperty ,
+                          owl:TransitiveProperty ;
                  rdfs:domain bld:Apartment ;
                  rdfs:range bld:Apartment .
 
@@ -110,6 +111,8 @@
               rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
               rdfs:range :RealEstatePublication .
 
+
+###  https://w3id.org/bot#containsZone
 
 #################################################################
 #    Data properties
@@ -370,8 +373,8 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                        rdfs:subClassOf <http://rdfs.org/sioc/ns#Post> .
 
 
-###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/RealEstatePublicationLoan
-:RealEstatePublicationLoan rdf:type owl:Class ;
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/RealEstatePublicationRent
+:RealEstatePublicationRent rdf:type owl:Class ;
                            rdfs:subClassOf :RealEstatePublication .
 
 
@@ -418,6 +421,14 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
       rdfs:subClassOf bld:Space .
 
 
+###  https://w3id.org/bot#Building
+
+###  https://w3id.org/bot#Site
+
+###  https://w3id.org/bot#Space
+
+###  https://w3id.org/bot#Storey
+
 #################################################################
 #    Individuals
 #################################################################
@@ -450,7 +461,7 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoDSD1P3EL1
 :AvisoDSD1P3EL1 rdf:type owl:NamedIndividual ,
-                         :RealEstatePublicationLoan ;
+                         :RealEstatePublicationRent ;
                 :aboutBuilding :Departamento1P3EL1 ;
                 :published_by :DavidScoffield ;
                 :currency "dolares" ;
@@ -474,13 +485,23 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm1D2P3EL1
 :AvisoInm1D2P3EL1 rdf:type owl:NamedIndividual ,
-                           :RealEstatePublicationLoan ;
+                           :RealEstatePublicationRent ;
                   :aboutBuilding :Departamento2P3EL1 ;
                   :published_by :Inmobiliaria1 ;
                   :currency "dolares" ;
                   :price "1500.0"^^xsd:float ;
                   :publicationDate "2023-06-29T12:00:00"^^xsd:dateTime ;
                   rdfs:label "Ciarlantini Inmobiliaria alquila departamento en La Plata" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm1GalponL4
+:AvisoInm1GalponL4 rdf:type owl:NamedIndividual ,
+                            :RealEstatePublicationRent ;
+                   :aboutBuilding :GalponL4 ;
+                   :published_by :Inmobiliaria1 ;
+                   :currency "dolares"^^xsd:string ;
+                   :price "135000.0"^^xsd:float ;
+                   :publicationDate "2023-04-30T12:00:00"^^xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm2CL6
@@ -509,7 +530,7 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/AvisoInm2D2P3EL11
 :AvisoInm2D2P3EL11 rdf:type owl:NamedIndividual ,
-                            :RealEstatePublicationLoan ;
+                            :RealEstatePublicationRent ;
                    :aboutBuilding :Departamento2P3EL11 ;
                    :published_by :Inmobiliaria2 ;
                    :currency "dolares" ;
@@ -781,6 +802,18 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                      rdfs:label "Departamento 2 Edificio L11" .
 
 
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento3P3EL1
+:Departamento3P3EL1 rdf:type owl:NamedIndividual ,
+                             bld:Apartment ;
+                    :neighborInFloor :Departamento1P3EL1 ,
+                                     :Departamento4P3EL1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Departamento4P3EL1
+:Departamento4P3EL1 rdf:type owl:NamedIndividual ,
+                             bld:Apartment .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/EdificioL1
 :EdificioL1 rdf:type owl:NamedIndividual ,
                      bld:Building ;
@@ -928,6 +961,11 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
 :Habitacion4CasaL6 rdf:type owl:NamedIndividual ,
                             :Bedroom ;
                    bot:hasElement :Balcon2CasaL6 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Habitacion5CasaL6
+:Habitacion5CasaL6 rdf:type owl:NamedIndividual ,
+                            :Bedroom .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Inmobiliaria1
@@ -1324,6 +1362,7 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
              bot:hasSpace :Baño2CasaL6 ,
                           :Habitacion3CasaL6 ,
                           :Habitacion4CasaL6 ,
+                          :Habitacion5CasaL6 ,
                           :LavaderoCasaL6 ;
              :storeyNumber 1 .
 
@@ -1421,4 +1460,4 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                          :Workspace .
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
