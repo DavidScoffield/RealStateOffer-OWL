@@ -17,6 +17,14 @@
 #    Object Properties
 #################################################################
 
+###  http://bimerr.iot.linkeddata.es/def/building#hasApartment
+bld:hasApartment rdf:type owl:ObjectProperty .
+
+
+###  http://rdfs.org/sioc/ns#about
+<http://rdfs.org/sioc/ns#about> rdf:type owl:ObjectProperty .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/aboutBuilding
 :aboutBuilding rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://rdfs.org/sioc/ns#about> ;
@@ -112,7 +120,33 @@
               rdfs:range :RealEstatePublication .
 
 
+###  https://w3id.org/bot#adjacentZone
+bot:adjacentZone rdf:type owl:ObjectProperty .
+
+
 ###  https://w3id.org/bot#containsZone
+bot:containsZone rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/bot#hasBuilding
+bot:hasBuilding rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/bot#hasElement
+bot:hasElement rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/bot#hasSpace
+bot:hasSpace rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/bot#hasStorey
+bot:hasStorey rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/bot#intersectsZone
+bot:intersectsZone rdf:type owl:ObjectProperty .
+
 
 #################################################################
 #    Data properties
@@ -216,12 +250,14 @@
 #################################################################
 
 ###  http://bimerr.iot.linkeddata.es/def/building#Apartment
-bld:Apartment owl:disjointWith :Street ,
+bld:Apartment rdf:type owl:Class ;
+              owl:disjointWith :Street ,
                                bot:Storey .
 
 
 ###  http://bimerr.iot.linkeddata.es/def/building#Building
-bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
+bld:Building rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( bot:Building
                                                         [ rdf:type owl:Restriction ;
                                                           owl:onProperty bot:containsZone ;
                                                           owl:someValuesFrom bld:Apartment
@@ -234,6 +270,22 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
                                                       ) ;
                                    rdf:type owl:Class
                                  ] .
+
+
+###  http://bimerr.iot.linkeddata.es/def/building#BuildingElement
+bld:BuildingElement rdf:type owl:Class .
+
+
+###  http://bimerr.iot.linkeddata.es/def/building#Space
+bld:Space rdf:type owl:Class .
+
+
+###  http://bimerr.iot.linkeddata.es/def/building#Storey
+bld:Storey rdf:type owl:Class .
+
+
+###  http://rdfs.org/sioc/ns#Post
+<http://rdfs.org/sioc/ns#Post> rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2023/5/real_state_offer/Attic
@@ -421,13 +473,29 @@ bld:Building owl:equivalentClass [ owl:intersectionOf ( bot:Building
       rdfs:subClassOf bld:Space .
 
 
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class .
+
+
 ###  https://w3id.org/bot#Building
+bot:Building rdf:type owl:Class .
+
 
 ###  https://w3id.org/bot#Site
+bot:Site rdf:type owl:Class .
+
 
 ###  https://w3id.org/bot#Space
+bot:Space rdf:type owl:Class .
+
 
 ###  https://w3id.org/bot#Storey
+bot:Storey rdf:type owl:Class .
+
+
+###  https://w3id.org/bot#Zone
+bot:Zone rdf:type owl:Class .
+
 
 #################################################################
 #    Individuals
