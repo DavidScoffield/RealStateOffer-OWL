@@ -17,7 +17,7 @@ PREFIX xml: <http://www.w3.org/XML/1998/namespace>
 SELECT ?inmueble ?barrio ?m2Lote
 WHERE {
   VALUES ?m2Paramentro {40}
-  VALUES ?tiposInmuebles :Estate
+  VALUES ?tiposInmuebles {:Estate}
 
    ?inmueble a ?tiposInmuebles;
       :isContained ?lote.
@@ -53,21 +53,35 @@ PREFIX bld: <http://bimerr.iot.linkeddata.es/def/building#>
 PREFIX bot: <https://w3id.org/bot#>
 PREFIX xml: <http://www.w3.org/XML/1998/namespace>
 
-SELECT ?inmueble ?barrio ?m2Lote
+SELECT ?inmobiliaria ?aviso ?departamento
 WHERE {
-    VALUES ?m2Paramentro {40}
 
-    ?inmueble a :Estate;
-        :isContained ?lote.
+    ?inmobiliaria a :RealEstate;
+                :publisher_of ?aviso.
+
+    ?aviso a :RealEstatePublication;
+                :aboutBuilding ?departamento.
+
+
+    ?departamento a bld:Apartment;
+                :isContained ?piso.
+
+
+   ?piso a bld:Storey;
+                :storeyNumber 3;
+                :isContained ?edificio.
+
+    ?edificio a bld:Building;
+                bot:containsZone ?terraza;
+                :isContained ?lote.
+
+    ?terraza a :Rooftop.
 
     ?lote a :Lot;
-        :inNeighborhood ?barrio ;
-                :m2 ?m2Lote.
+                :inNeighborhood ?barrio.
 
     ?barrio a :Neighborhood;
-        :hasService :Luz, :Gas, :Cloacas.
-
-    FILTER (?m2Lote > ?m2Paramentro)
+                :hasService :Luz, :Agua.
 }
 ```
 
