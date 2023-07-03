@@ -6,6 +6,6 @@
     <uri id="Imports Wizard Entry" name="https://w3id.org/bot-0.3.2" uri="http://www.w3id.org/bot/bot.ttl"/>
     <uri id="Imports Wizard Entry" name="http://bimerr.iot.linkeddata.es/def/building#" uri="https://bimerr.iot.linkeddata.es/def/building/ontology.ttl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1688163894374" name="http://rdfs.org/sioc/ns" uri="modified%20ontologies/sioc-ns.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1688339777544" name="http://rdfs.org/sioc/ns" uri="modified%20ontologies/sioc-ns.rdf"/>
     </group>
 </catalog>
